@@ -1,5 +1,7 @@
 <?php
 
+session_start(); // Iniciar variables de sesión 
+
 // Definir la ruta base del proyecto
 define('BASE_PATH', __DIR__);
 
@@ -10,7 +12,8 @@ require_once 'core/Router.php';
 $router = new Router();
 
 // Registrar rutas
-$router->get('/', 'DashboardController@index');
+$router->get('/home', 'HomeController@index');
+$router->get('/dashboard', 'DashboardController@index');
 $router->get('/login', 'AuthController@showLogin');
 $router->post('/login', 'AuthController@login');
 $router->get('/projects/{id}', 'ProjectController@show');

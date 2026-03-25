@@ -60,7 +60,7 @@ class Router
                 [$controller, $methodAction] = explode('@', $action);
 
                 // Cargar el controlador correspondiente
-                require_once __DIR__ . "/../app/Controllers/{$controller}.php";
+                require_once BASE_PATH . "/app/Controllers/{$controller}.php";
 
                 // Crear una instancia del controlador y llamar al método de acción
                 $controllerInstance = new $controller();

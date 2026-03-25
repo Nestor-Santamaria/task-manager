@@ -12,13 +12,29 @@ require_once BASE_PATH . "/core/Controller.php";
 class AuthController extends Controller
 {
 
+    // Método para mostrar el formulario de login
     public function showLogin()
     {
         $this->view('auth/login');
     }
 
+    // Método para procesar el login
     public function login()
     {
-        echo "Procesando login...";
+        $email = $_POST['email'] ?? '';
+        $password = $_POST['password'] ?? '';
+
+        if ($email === 'admin@test.com' && $password === '1234') {
+
+            $_SESSION['user'] = [
+                'name' => 'Admin',
+                'role' => 'admin'
+            ];
+
+            $this->redirect('/dashboard');
+            return;
+        }
+
+        echo "Credenciales incorrectas";
     }
 }
