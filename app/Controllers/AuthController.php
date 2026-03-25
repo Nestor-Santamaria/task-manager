@@ -37,4 +37,12 @@ class AuthController extends Controller
 
         echo "Credenciales incorrectas";
     }
+
+    // Método para cerrar sesión
+    public function logout()
+    {
+        session_destroy(); // Destruir la sesión para cerrar sesión
+        $this->redirect('/login'); // Redirigir al login después de cerrar sesión
+        return;
+    }
 }

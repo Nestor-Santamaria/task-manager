@@ -22,4 +22,11 @@ class Controller
         header("Location: $url");
         exit;
     }
+
+    // Método para verificar si el usuario está autenticado, si no lo está, redirige al login
+    protected function auth() {
+        if (!isset($_SESSION['user'])) {
+            $this->redirect('/login');
+        }
+    }
 }

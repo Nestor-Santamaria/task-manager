@@ -6,7 +6,18 @@ class DashboardController extends Controller {
 
     public function index()
     {
-        echo "<h1>Dashboard</h1>";
+        $this->auth(); // Verificar autenticación antes de mostrar el dashboard
+        
+        $this->view('dashboard/index');
+    }
+
+    public function home()
+    {
+        if (isset($_SESSION['user'])){
+            $this->view('/dashboard');
+        } else {
+            $this->redirect('/login');
+        }
     }
 
 }

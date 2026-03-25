@@ -12,10 +12,11 @@ require_once 'core/Router.php';
 $router = new Router();
 
 // Registrar rutas
-$router->get('/home', 'HomeController@index');
+$router->get('/', 'DashboardController@home');
 $router->get('/dashboard', 'DashboardController@index');
 $router->get('/login', 'AuthController@showLogin');
 $router->post('/login', 'AuthController@login');
+$router->get('/logout', 'AuthController@logout');
 $router->get('/projects/{id}', 'ProjectController@show');
 
 // Despachar la ruta actual
